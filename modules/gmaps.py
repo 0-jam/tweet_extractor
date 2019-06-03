@@ -1,3 +1,4 @@
+# Initialize Google Maps API and load some modules
 import googlemaps
 
 import settings
