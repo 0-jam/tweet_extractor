@@ -1,4 +1,6 @@
+# Initialize Twitter API and load some modules
 import tweepy
+import modules.gmaps as gmaps
 
 import settings
 
@@ -25,3 +27,16 @@ def search_trends_by_latlng(latlng):
     # The location of trends can be different from specified location
     print('Retrieving trends ID: {} ({}) ...'.format(place_id, place['name']))
     return search_trends_by_id(place_id)
+
+
+def search_trends_by_query(query):
+    locations = gmaps.geocode(query)
+
+    if locations:
+        latlng = locations[0]['geometry']['location'].values()
+        trends = search_trends_by_latlng(latlng)
+    else:
+        print('No location found. Retrieving global trends ...')
+        trends = search_trends_by_id()
+
+    return trends

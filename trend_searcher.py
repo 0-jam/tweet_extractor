@@ -2,7 +2,6 @@ import argparse
 import json
 from pathlib import Path
 
-import modules.gmaps as gmaps
 import modules.twitter as twitter
 
 
@@ -13,17 +12,14 @@ def main():
     parser.add_argument('--output', type=str, default='trends.json', help='Output file path (default: results.json)')
     args = parser.parse_args()
 
-    locations = gmaps.geocode(args.query)
-
-    if locations:
-        latlng = locations[0]['geometry']['location'].values()
-        trends = twitter.search_trends_by_latlng(latlng)
+    if args.query:
+        trends = twitter.search_trends_by_query(args.query)
     else:
         print('Location is not specified. Retrieving global trends ...')
         trends = twitter.search_trends_by_id()
 
     with Path(args.output).open('w', encoding='utf-8') as out:
-        out.write(json.dumps(trends, ensure_ascii=False, indent=4))
+        out.write(json.dumps(trends[0], ensure_ascii=False, indent=4))
 
 
 if __name__ == "__main__":
