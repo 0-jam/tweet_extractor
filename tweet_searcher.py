@@ -2,13 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
-import tweepy
-
-import settings
-
-assert settings.TWITTER_API_KEY
-assert settings.TWITTER_API_SECRET
-twitter_api = tweepy.API(tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET))
+import modules.twitter as twitter
 
 
 def main():
@@ -16,12 +10,11 @@ def main():
     # Required arguments
     parser.add_argument('query', type=str, help='Input file path')
     # Optional arguments
-    parser.add_argument('--output', type=str, default='results.json', help='Output file path (default: results.json)')
-    parser.add_argument('--count', type=int, default=100, help='The number of tweets to retrieve')
+    parser.add_argument('--output', type=str, default='tweets.json', help='Output file path (default: tweets.json)')
+    parser.add_argument('--count', type=int, default=100, help='The number of tweets to retrieve (default: 100)')
     args = parser.parse_args()
 
-    tweets = twitter_api.search(q=args.query, count=args.count)
-    tweets_dict = {tweet.id: tweet._json for tweet in tweets}
+    tweets_dict = twitter.search_tweet(args.query, args.count)
 
     with Path(args.output).open('w', encoding='utf-8') as out_json:
         out_json.write(json.dumps(tweets_dict, ensure_ascii=False, indent=4))
