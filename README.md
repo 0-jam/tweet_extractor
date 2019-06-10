@@ -13,6 +13,7 @@
    1. [tweet_searcher.py](#tweet_searcherpy)
    1. [trend_searcher.py](#trend_searcherpy)
    1. [tweets_text_extractor.py](#tweets_text_extractorpy)
+   1. [tweets_trend_extractor.py](#tweets_trend_extractorpy)
 
 ---
 
@@ -64,7 +65,7 @@ GOOGLE_API_KEY='key string here'
 
 ### tweet_searcher.py
 
-`$ python tweet_searcher.py 'Radeon RX 5700' --output rdna.json --count 50`
+`$ python tweet_searcher.py 'Radeon RX 5700' --output tweets_rdna.json --count 50`
 
 ### trend_searcher.py
 
@@ -72,4 +73,8 @@ GOOGLE_API_KEY='key string here'
 
 ### tweets_text_extractor.py
 
-`$ python tweets_text_extractor.py rdna.json rdna.txt`
+`$ python tweets_text_extractor.py tweets_rdna.json tweets_rdna.txt`
+
+### tweets_trend_extractor.py
+
+`$ python tweets_trend_extractor.py trends_tokyo.json trends_tokyo.txt`
