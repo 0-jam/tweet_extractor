@@ -12,6 +12,7 @@
 1. [Usage](#usage)
    1. [tweet_searcher.py](#tweet_searcherpy)
    1. [trend_searcher.py](#trend_searcherpy)
+   1. [tweets_text_extractor.py](#tweets_text_extractorpy)
 
 ---
 
@@ -68,3 +69,7 @@ GOOGLE_API_KEY='key string here'
 ### trend_searcher.py
 
 `$ python trend_searcher.py --query '東京' --output trends_tokyo.json`
+
+### tweets_text_extractor.py
+
+`$ python tweets_text_extractor.py rdna.json rdna.txt`
