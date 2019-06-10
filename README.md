@@ -12,11 +12,14 @@
 1. [Usage](#usage)
    1. [tweet_searcher.py](#tweet_searcherpy)
    1. [trend_searcher.py](#trend_searcherpy)
+   1. [tweets_text_extractor.py](#tweets_text_extractorpy)
+   1. [tweets_trend_extractor.py](#tweets_trend_extractorpy)
 
 ---
 
 ## Todo
 
+- [ ] Remove retweeted (starts with 'RT')
 - [x] Search trends by a specified location
 - [x] Search tweets by a specified word
 - [x] Connect to API
@@ -32,6 +35,8 @@ $ pip install googlemaps --user
 ```
 
 ## Prepare APIs
+
+- Create `.env` file and add following lines
 
 ### Twitter API
 
@@ -60,8 +65,16 @@ GOOGLE_API_KEY='key string here'
 
 ### tweet_searcher.py
 
-`$ python tweet_searcher.py 'Radeon RX 5700' --output rdna.json --count 50`
+`$ python tweet_searcher.py 'Radeon RX 5700' --output tweets_rdna.json --count 50`
 
 ### trend_searcher.py
 
 `$ python trend_searcher.py --query '東京' --output trends_tokyo.json`
+
+### tweets_text_extractor.py
+
+`$ python tweets_text_extractor.py tweets_rdna.json tweets_rdna.txt`
+
+### tweets_trend_extractor.py
+
+`$ python tweets_trend_extractor.py trends_tokyo.json trends_tokyo.txt`
