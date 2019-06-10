@@ -17,6 +17,7 @@
 
 ## Todo
 
+- [ ] Remove retweeted (starts with 'RT')
 - [x] Search trends by a specified location
 - [x] Search tweets by a specified word
 - [x] Connect to API
@@ -32,6 +33,8 @@ $ pip install googlemaps --user
 ```
 
 ## Prepare APIs
+
+- Create `.env` file and add following lines
 
 ### Twitter API
 

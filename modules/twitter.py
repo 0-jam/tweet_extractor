@@ -12,7 +12,7 @@ api = tweepy.API(tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_
 # Search tweets by query and returns them as single dict format
 def search_tweet(query, count=100):
     tweets = api.search(q=query, count=count)
-    return {tweet.id: tweet._json for tweet in tweets}
+    return {'tweets': [tweet._json for tweet in tweets]}
 
 
 # 1 is the ID of global trends
