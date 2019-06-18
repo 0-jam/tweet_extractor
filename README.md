@@ -4,16 +4,17 @@
 
 ---
 
-1. [Todo](#todo)
-1. [Installation](#installation)
-1. [Prepare APIs](#prepare-apis)
-   1. [Twitter API](#twitter-api)
-   1. [Google Maps API](#google-maps-api)
-1. [Usage](#usage)
+1. [Todo](#Todo)
+1. [Installation](#Installation)
+1. [Prepare APIs](#Prepare-APIs)
+   1. [Twitter API](#Twitter-API)
+   1. [Google Maps API](#Google-Maps-API)
+1. [Usage](#Usage)
    1. [tweet_searcher.py](#tweet_searcherpy)
    1. [trend_searcher.py](#trend_searcherpy)
    1. [tweets_text_extractor.py](#tweets_text_extractorpy)
    1. [tweets_trend_extractor.py](#tweets_trend_extractorpy)
+   1. [bulk_tweet_searcher.py](#bulk_tweet_searcherpy)
 
 ---
 
@@ -78,3 +79,9 @@ GOOGLE_API_KEY='key string here'
 ### tweets_trend_extractor.py
 
 `$ python tweets_trend_extractor.py trends_tokyo.json trends_tokyo.txt`
+
+### bulk_tweet_searcher.py
+
+- ATTENTION: This script emits large JSON file
+
+`$ python bulk_tweet_searcher.py --location "東京" --output trending_tweets.json`
