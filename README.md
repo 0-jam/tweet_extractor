@@ -15,6 +15,7 @@
    1. [tweets_text_extractor.py](#tweets_text_extractorpy)
    1. [tweets_trend_extractor.py](#tweets_trend_extractorpy)
    1. [bulk_tweet_searcher.py](#bulk_tweet_searcherpy)
+   1. [bulk_tweet_extractor.py](#bulk_tweet_extractorpy)
 
 ---
 
@@ -82,6 +83,11 @@ GOOGLE_API_KEY='key string here'
 
 ### bulk_tweet_searcher.py
 
-- ATTENTION: This script emits large JSON file
+- ATTENTION: This script emits a large JSON file
+    - Open it as a text file may cause some problems due to large memory usage
 
 `$ python bulk_tweet_searcher.py --location "東京" --output trending_tweets.json`
+
+### bulk_tweet_extractor.py
+
+`$ python bulk_tweet_extractor.py trending_tweets.json`
