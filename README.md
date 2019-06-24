@@ -34,6 +34,9 @@ $ pip install tweepy python-dotenv --user
 
 # trend_searcher.py
 $ pip install googlemaps --user
+
+# bulk_tweet_searcher.py
+$ pip install tqdm --user
 ```
 
 ## Prepare APIs

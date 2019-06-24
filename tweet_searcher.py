@@ -17,7 +17,7 @@ def main():
     tweets_dict = twitter.search_tweet(args.query, args.count)
 
     with Path(args.output).open('w', encoding='utf-8') as out_json:
-        out_json.write(json.dumps(tweets_dict, ensure_ascii=False, indent=4))
+        out_json.write(json.dumps(tweets_dict, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

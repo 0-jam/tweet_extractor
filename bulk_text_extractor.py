@@ -1,19 +1,23 @@
 import argparse
 import json
-from datetime import datetime
 from pathlib import Path
 
 
 def main():
     parser = argparse.ArgumentParser(description='Extract text from tweets collected by bulk_tweet_searcher.py')
     parser.add_argument('input', type=str, help='Input file path')
-    parser.add_argument('--output', type=str, default='tweets_{}'.format(datetime.today().strftime('%Y%m%d%H%M')), help="Output directory path (default: 'tweets_<YYYYMMDDHHMM>')")
+    parser.add_argument('--output', type=str, help="Output directory path (default: 'Same as input filename without extension')")
     args = parser.parse_args()
 
-    with Path(args.input).open(encoding='utf-8') as input:
+    inpath = Path(args.input)
+    with inpath.open(encoding='utf-8') as input:
         trending_tweets = json.load(input)
 
-    outdir = Path(args.output)
+    if args.output:
+        outdir = Path(args.output)
+    else:
+        outdir = Path(inpath.stem)
+
     if not outdir.is_dir():
         Path.mkdir(outdir, parents=True)
 

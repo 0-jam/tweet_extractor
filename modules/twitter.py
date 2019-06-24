@@ -17,7 +17,9 @@ def search_tweet(query, count=100):
 
 # 1 is the ID of global trends
 def search_trends_by_id(place_id=1):
-    return api.trends_place(place_id)
+    # API returns trends as a single element list,
+    # so this method returns the first (also the last) element of a list
+    return api.trends_place(place_id)[0]
 
 
 def search_trends_by_latlng(latlng):
