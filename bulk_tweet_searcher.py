@@ -1,7 +1,9 @@
 import argparse
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+from tqdm import tqdm
 
 import modules.twitter as twitter
 
@@ -21,11 +23,11 @@ def main():
 
     trend_names = [trend['name'] for trend in trends[0]['trends']]
 
-    tweets = {trend: twitter.search_tweet(trend) for trend in trend_names}
+    tweets = {trend: twitter.search_tweet(trend) for trend in tqdm(trend_names, desc='Retrieving tweets...')}
 
     with Path(args.output).open('w', encoding='utf-8') as out_json:
         out_json.write(json.dumps(tweets, ensure_ascii=False, indent=2))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
